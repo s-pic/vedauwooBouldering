@@ -26,6 +26,10 @@
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
 
+    <!-- Read in the geojson-->
+    <script src = "js/leaflet_ajax.js">
+    </script>
+
   </head>
 
   <body>
@@ -81,7 +85,7 @@
     </div>
 
     <script>
-       var map = L.map('map').setView([41.185, -105.378],13)
+      var map = L.map('map').setView([41.185, -105.378],13)
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -91,6 +95,9 @@
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoiamxvbWJhcmQzMTQxNTkiLCJhIjoiY2t4ZG4wbDQ0M2h0dDJvcG12NWxkN2ljcCJ9.fNlPsPAoumrKbHKgXS2umw'
         }).addTo(map);
+
+      var geojsonLayer = new L.GeoJSON.AJAX("vedauwoo.geojson");       
+      geojsonLayer.addTo(map);
 
     </script>
 
