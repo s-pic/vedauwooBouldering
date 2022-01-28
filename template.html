@@ -27,8 +27,8 @@
     <link href="style.css" rel="stylesheet">
 
     <!-- Read in the geojson-->
-    <script src = "js/leaflet_ajax.js">
-    </script>
+    <!-- <script src = "js/leaflet_ajax.js">
+    </script> -->
 
   </head>
 
@@ -96,8 +96,14 @@
             accessToken: 'pk.eyJ1IjoiamxvbWJhcmQzMTQxNTkiLCJhIjoiY2t4ZG4wbDQ0M2h0dDJvcG12NWxkN2ljcCJ9.fNlPsPAoumrKbHKgXS2umw'
         }).addTo(map);
 
-      var geojsonLayer = new L.GeoJSON.AJAX("vedauwoo.geojson");       
-      geojsonLayer.addTo(map);
+      // marker = new L.marker([41.185,-105.378])
+      //   .bindPopup('test')
+      //   .addTo(map);
+
+      var geojson = new L.GeoJSON.AJAX("assets/vedauwoo.geojson");
+        geojson.on('data:loaded', function(){
+        geojson.addTo(mymap);
+      });
 
     </script>
 
