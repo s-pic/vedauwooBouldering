@@ -1,6 +1,14 @@
 # vedauwooBouldering
 
-### TODO
+### Data to do
+- [ ] Make a list of all boulder problems: include name, area, sub-area, grade, description, kid friendly, dry easily, stars
+- [ ] For each sub area and area make a polygon
+- [ ] for each sub area and area make a trail
+
+### book to do
+- [ ] find a template and start pasting in photos
+
+### Viz to do
 - [ ] Add in filters for data
 - [ ] Edit data so filters work
 - [ ] Finish off collecting points
