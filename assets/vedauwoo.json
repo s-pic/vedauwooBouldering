@@ -307,4 +307,5 @@ var voo_spatial = {
     { "type": "Feature", "properties": { "Name": "100% Beef", "descriptio": null, "notes": null, "Routes": null, "Area Name": "700E", "Grade": "V9", "Sub-Area": "700E", "Guidebook": null }, "geometry": { "type": "Point", "coordinates": [ -105.357153487764521, 41.15268793320287 ] } },
     { "type": "Feature", "properties": { "Name": "The Jungle", "descriptio": null, "notes": "The Jungle is V9 according to comment on Davin's blog", "Routes": "Welcome to The Jungle (4), Jungle Ball(1) , Whatever Feels Natural (5)", "Area Name": "The Jungle", "Grade": "V1-9", "Sub-Area": "The Jungle", "Guidebook": null }, "geometry": { "type": "Point", "coordinates": [ -105.3509457541915, 41.152454865732622 ] } }
     ]
-}
+    }
+    
