@@ -15,5 +15,5 @@ shp_file['SpatialID'] = spatial_id_col
 shp_file.crs = from_epsg(4326)
 
 shp_file.to_file('assets/vedauwoo.geojson', driver = 'GeoJSON')
-shp_file.to_file('assets/vedauwoo.shp')
-##NOTE: manually save as geojson, then create a json file where you add var name{} to it
+shp_file.to_file('assets/vedauwoo_edited.shp')
+##NOTE: manually save as geojson, then create a json file where you add var name =  to it
