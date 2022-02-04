@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="jlo">
-    <link rel="icon" href="bstrap/asses/favicon.ico">
+    <link rel="icon" href="bstrap/assets/favicon.ico">
 
     <title>Starter Template for Bootstrap</title>
     
@@ -29,6 +29,8 @@
     <!-- Read in the geojson-->
     <script src = "assets/vedauwoo.json">
     </script>
+
+    <script src = 'js/jquery-csv.js'></script>
 
   </head>
 
@@ -57,7 +59,7 @@
 
     <div class = "container">
         <div class = 'row'>
-            <div id = 'col-2'></div>
+            <div id = 'col-1'></div>
 
             <div id = 'col-8'>
                 <h2>Welcome to Vedauwoo Bouldering</h2>
@@ -67,20 +69,20 @@
 
             </div>
             
-            <div id = 'col-2'></div>
+            <div id = 'col-3'></div>
         </div>
     </div>
 
     <div class = "container">
         <div class = 'row'>
 
-            <div class = 'col-2'></div>
+            <div class = 'col-1'></div>
 
             <div class = 'col-8'>
                  <div id="map"></div>
             </div>
 
-            <div class = 'col-2'></div>
+            <div class = 'col-3'></div>
         </div>
     </div>
 
@@ -117,15 +119,27 @@
 
       L.control.layers(baseMaps).addTo(map);
 
-      // marker = new L.marker([41.185,-105.378])
-      //   .bindPopup('test')
-      //   .addTo(map);
-
       var layerGroup = L.geoJSON(voo_spatial,{
         onEachFeature: function(feature,layer){
           layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
         }
       }).addTo(map);
+
+      /*
+        Now load the csv for now and try and display
+
+      */
+
+      function loadFile() {
+        var file = 'assets/test.csv';
+        $.get(file, function(csv) {
+            var data = $.csv.toArrays(csv, {
+              onParseValue: $.csv.hooks.castToScalar
+            });
+        });
+      }
+
+      loadFile();
 
     </script>
 
