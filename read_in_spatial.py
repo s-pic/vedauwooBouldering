@@ -17,3 +17,8 @@ shp_file.crs = from_epsg(4326)
 shp_file.to_file('assets/vedauwoo.geojson', driver = 'GeoJSON')
 shp_file.to_file('assets/vedauwoo_edited.shp')
 ##NOTE: manually save as geojson, then create a json file where you add var name =  to it
+
+import pandas as pd
+test_data = pd.read_csv('assets/test.csv')
+
+test_data.to_json('test_data.json')
