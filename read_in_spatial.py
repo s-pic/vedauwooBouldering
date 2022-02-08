@@ -21,4 +21,4 @@ shp_file.to_file('assets/vedauwoo_edited.shp')
 import pandas as pd
 test_data = pd.read_csv('assets/test.csv')
 
-test_data.to_json('test_data.json')
+test_data.to_json('test_data.json', orient = 'records')

@@ -30,11 +30,14 @@
     <script src = "assets/vedauwoo.json">
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="bstrap/js/bootstrap.min.js"></script>
     <script src="js/test.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
 
   </head>
 
@@ -82,7 +85,7 @@
 
             <div class = 'col-1'></div>
 
-            <div class = 'col-8'>
+            <div class = 'col-5'>
                  <div id="map"></div>
             </div>
 
@@ -90,14 +93,16 @@
         </div>
     </div>
 
-    <div class="container">
-      <table id="table" data-height="460">
-        <thead>
-          <tr>
-            <th data-field = 'Route Name'> test</th>
-          </tr>
-        </thead>
-      </table>
+    <div class ="container">
+
+        <div class = 'col-1 '></div>
+
+        <div class = 'col-8'>
+          <div id = "jsGrid">
+          </div>
+        </div>
+
+        <div class = 'col-3'></div>
     </div>
 
     <script>
@@ -139,10 +144,22 @@
         }
       }).addTo(map);
 
-      /*
-        Now load the csv for now and try and display
+      $("#jsGrid").jsGrid({
+        width: "800px",
+        height: "350px",
 
-      */
+        sorting: true,
+        paging: true,
+ 
+        data: test_data,
+
+        fields: [
+            { name: "Route Name", type: "text", width: 30},
+            { name: "Grade", type: "text", width: 10 },
+            { name: "Area", type:"text", width: 15},
+            { name: "Sub-Area", type:"text", width: 15}
+        ]
+    });
 
       
 
