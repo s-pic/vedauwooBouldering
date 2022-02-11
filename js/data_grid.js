@@ -18,11 +18,25 @@ const gridOptions = {
     },
     rowSelection: 'multiple',
     rowMultiSelectWithClick:true,
-    pagination:true
-}
+    pagination:true,
+    onSelectionChanged:onSelectionChanged
+};
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+};
+
+function onSelectionChanged(event){
+    var selectedNodes = event.api.getSelectedNodes();
+    var selectedData = selectedNodes.map(node => node.data.SpatialID);
+ 
+    console.log(selectedData.filter(onlyUnique));
+    
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-    const gridDiv = document.querySelector('#myGrid');
+    var gridDiv = document.querySelector('#myGrid');
     new agGrid.Grid(gridDiv, gridOptions);
     
 });
+
