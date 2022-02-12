@@ -27,8 +27,8 @@
     <link href="style.css" rel="stylesheet">
 
     <!-- Read in the geojson-->
-    <script src = "assets/vedauwoo.json">
-    </script>
+    <script src='assets/vedauwoo.json'></script>
+    <!-- eventually do with a  promise with a $.getJson-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="bstrap/js/bootstrap.min.js"></script>
@@ -161,36 +161,34 @@
         maxBoundsViscosit:1.0
       });
 
-      var promise = $.geoJSON();
-      promise.then(function(data) {
-          var allbusinesses = L.geoJson(data);
+      // var promise = $.getJSON('assets/vedauwoo.geojson');
+      // promise.then(function(data){
+      //     var allData = L.geoJson(data,{
+      //       onEachFeature: function(feature,layer){
+      //             layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
+      //           }
+      //     });
 
-          var others = L.geoJson(data, {
-              filter: function(feature, layer) {
-                  return feature.properties.BusType != "Cafe";
-              },
-              pointToLayer: function(feature, latlng) {
-                  return L.marker(latlng, {
-                  }).on('mouseover', function() {
-                      this.bindPopup(feature.properties.Name).openPopup();
-                  });
-              }
-          });
-          map.fitBounds(allbusinesses.getBounds(), {
-              padding: [50, 50]
-          });
-          others.addTo(map)
-          // The JavaScript below is new
-          $("#others").click(function() {
-              map.addLayer(others)
-              map.removeLayer(cafes)
-          });
-          $("#cafes").click(function() {
-              map.addLayer(cafes)
-              map.removeLayer(others)
-          });
-      });
+      //     var others = L.geoJson(data, {
+      //         filter: function(feature, layer) {
+      //             return feature.properties.Grade == "V0";
+      //         },
+      //         onEachFeature: function(feature,layer){
+      //             layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
+      //           }
+      //     });
 
+      //     allData.addTo(map)
+
+      //     $("#others").click(function() {
+      //       map.removeLayer(allData)  
+      //       map.addLayer(others)
+      //     });
+      //     $("#allData").click(function() {
+      //       map.removeLayer(others)
+      //       map.addLayer(allData)
+      //     });
+      // });
 
       var baseMaps = {
         "Streets":osm,
@@ -203,7 +201,8 @@
         onEachFeature: function(feature,layer){
           layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
         }
-      }).addTo(map); 
+      }).addTo(map);
+
     </script>
 
     

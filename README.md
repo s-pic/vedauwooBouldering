@@ -32,7 +32,7 @@
 
 
 ### website to do
-- [ ] get a url
+- [x] get a url
 - [ ] get hosting
 - [ ] Do i need django or something to have multiple urls?
 
