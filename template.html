@@ -109,9 +109,8 @@
         <div class = 'col-md-8'>
           <div class = 'row'>
               <div class="button-group">
-
-                <button id = 'filterMap'>Filter map to show selected data</button>
-                <button id = 'resetMap'>Reset Map</button>
+                <button type="button" id="resetMap">Show all data on map</button>
+                <button type="button" id="filterMap">Filter map to show selected data</button>
                 <button onclick = "clearFilters()">Reset Table</button>
               </div>
           </div>
@@ -126,9 +125,7 @@
     <div class = 'container'>
       <div class = 'row'>
         <div class = 'spacer'>
-
         </div>
-
       </div>
     </div>
 
@@ -153,7 +150,7 @@
           accessToken: 'pk.eyJ1IjoiamxvbWJhcmQzMTQxNTkiLCJhIjoiY2t4ZG4wbDQ0M2h0dDJvcG12NWxkN2ljcCJ9.fNlPsPAoumrKbHKgXS2umw'
       });
 
-      var bounds = new L.LatLngBounds(new L.LatLng(41.008,-106.710), new L.LatLng(41.813,-104.861));
+      var bounds = new L.LatLngBounds(new L.LatLng(41.008,-106.710), new L.LatLng(41.813,-104.861));   
 
       var map = L.map('map', {
         center: [41.210, -105.360],
@@ -164,6 +161,37 @@
         maxBoundsViscosit:1.0
       });
 
+      var promise = $.geoJSON();
+      promise.then(function(data) {
+          var allbusinesses = L.geoJson(data);
+
+          var others = L.geoJson(data, {
+              filter: function(feature, layer) {
+                  return feature.properties.BusType != "Cafe";
+              },
+              pointToLayer: function(feature, latlng) {
+                  return L.marker(latlng, {
+                  }).on('mouseover', function() {
+                      this.bindPopup(feature.properties.Name).openPopup();
+                  });
+              }
+          });
+          map.fitBounds(allbusinesses.getBounds(), {
+              padding: [50, 50]
+          });
+          others.addTo(map)
+          // The JavaScript below is new
+          $("#others").click(function() {
+              map.addLayer(others)
+              map.removeLayer(cafes)
+          });
+          $("#cafes").click(function() {
+              map.addLayer(cafes)
+              map.removeLayer(others)
+          });
+      });
+
+
       var baseMaps = {
         "Streets":osm,
         "Satellite":sat_data
@@ -171,14 +199,11 @@
 
       L.control.layers(baseMaps).addTo(map);
 
-      var myIcon = L.icon();
-
       var layerGroup = L.geoJSON(voo_spatial,{
         onEachFeature: function(feature,layer){
           layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
         }
-      }).addTo(map);    
-
+      }).addTo(map); 
     </script>
 
     
