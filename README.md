@@ -16,15 +16,17 @@
 ### Viz to do
 - [x] Add in filters for data
 - [ ] Filters for grade: convert all to V scale?
+- [ ] Filters: only bring in the filters we actually need. there are a ton of extra options out there currently
 - [ ] hide api key (in js)
 - [ ] Convert numbers in grade to stars or something cool
 - [ ] Add in an about me section
 - [ ] For selected routes: highlight leaflet info
-- [ ] Restrict bounds
+- [x] Restrict bounds
+- [ ] allow users to right click and select coordinates
 
 #### Below I may need python to do
 - [ ] For selected routes: export to shapefile
-- [ ] Select areas and export to shapefile
+- [ ] Select areas in table (?) and export to shapefile
 - [ ] export all data to shapefile
 
 

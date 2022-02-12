@@ -29,9 +29,9 @@ function onlyUnique(value, index, self) {
 function onSelectionChanged(event){
     var selectedNodes = event.api.getSelectedNodes();
     var selectedData = selectedNodes.map(node => node.data.SpatialID);
- 
-    console.log(selectedData.filter(onlyUnique));
-    
+    var uniqueSpatialID = selectedData.filter(onlyUnique);
+
+    return uniqueSpatialID
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,3 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
+function clearFilters(){
+    gridOptions.api.setFilterModel(null);
+}

@@ -93,17 +93,45 @@
         </div>
     </div>
 
+    <div class = 'container'>
+      <div class = 'row'>
+        <div class = 'spacer'>
+
+        </div>
+
+      </div>
+    </div>
+
     <div class ="container">
 
         <div class = 'col-md-1 '></div>
       
         <div class = 'col-md-8'>
+          <div class = 'row'>
+              <div class="button-group">
+
+                <button id = 'filterMap'>Filter map to show selected data</button>
+                <button id = 'resetMap'>Reset Map</button>
+                <button onclick = "clearFilters()">Reset Table</button>
+              </div>
+          </div>
           <div id = "myGrid", style="height: 400px; width:1000px;" class="ag-theme-alpine">
           </div>
         </div>
 
         <div class = 'col-md-3'></div>
     </div>
+
+    
+    <div class = 'container'>
+      <div class = 'row'>
+        <div class = 'spacer'>
+
+        </div>
+
+      </div>
+    </div>
+
 
     <script>
 
@@ -126,7 +154,6 @@
       });
 
       var bounds = new L.LatLngBounds(new L.LatLng(41.008,-106.710), new L.LatLng(41.813,-104.861));
-      console.log(bounds)
 
       var map = L.map('map', {
         center: [41.210, -105.360],
@@ -143,6 +170,8 @@
       };
 
       L.control.layers(baseMaps).addTo(map);
+
+      var myIcon = L.icon();
 
       var layerGroup = L.geoJSON(voo_spatial,{
         onEachFeature: function(feature,layer){
