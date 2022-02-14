@@ -28,7 +28,7 @@
 
 ### website to do
 - [x] get a url
-- [ ] get hosting
+- [ ] Publish on github pages now.. but that seems short term?
 - [ ] Do i need django or something to have multiple urls?
 
 ### book to do
