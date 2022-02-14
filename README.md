@@ -28,6 +28,8 @@
 
 ### website to do
 - [x] get a url
+# NOTE # 
+For now, run python -m http.server 8000 in the 'vedauwooBouldering' place and point chrome to localhost:8000
 - [ ] Publish on github pages now.. but that seems short term?
 - [ ] Do i need django or something to have multiple urls?
 
