@@ -26,12 +26,13 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 };
 
+var testGlobal;
 function onSelectionChanged(event){
     var selectedNodes = event.api.getSelectedNodes();
     var selectedData = selectedNodes.map(node => node.data.SpatialID);
     var uniqueSpatialID = selectedData.filter(onlyUnique);
 
-    return uniqueSpatialID
+    testGlobal = uniqueSpatialID;
 };
 
 document.addEventListener('DOMContentLoaded', () => {

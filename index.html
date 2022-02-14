@@ -121,7 +121,6 @@
         <div class = 'col-md-3'></div>
     </div>
 
-    
     <div class = 'container'>
       <div class = 'row'>
         <div class = 'spacer'>
@@ -162,7 +161,7 @@
       });
 
       var promise = $.getJSON("/assets/vedauwoo.geojson");
-     
+
       promise.then(function(data){
           var allData = L.geoJson(data,{
             onEachFeature: function(feature,layer){
@@ -172,6 +171,9 @@
 
           var others = L.geoJson(data, {
               filter: function(feature, layer) {
+                  
+                  // test = feature.properties.Grade.filter(item => !testGlobal.includes(item));
+                  test = feature.filter(item => item.SpatialID.includes(item))
                   return feature.properties.Grade == "V0";
               },
               onEachFeature: function(feature,layer){
