@@ -162,33 +162,34 @@
       });
 
       var promise = $.getJSON('assets/vedauwoo.geojson');
-      // promise.then(function(data){
-      //     var allData = L.geoJson(data,{
-      //       onEachFeature: function(feature,layer){
-      //             layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
-      //           }
-      //     });
+     
+      promise.then(function(data){
+          var allData = L.geoJson(data,{
+            onEachFeature: function(feature,layer){
+                  layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
+                }
+          });
 
-      //     var others = L.geoJson(data, {
-      //         filter: function(feature, layer) {
-      //             return feature.properties.Grade == "V0";
-      //         },
-      //         onEachFeature: function(feature,layer){
-      //             layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
-      //           }
-      //     });
+          var others = L.geoJson(data, {
+              filter: function(feature, layer) {
+                  return feature.properties.Grade == "V0";
+              },
+              onEachFeature: function(feature,layer){
+                  layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
+                }
+          });
 
-      //     allData.addTo(map)
+          allData.addTo(map)
 
-      //     $("#others").click(function() {
-      //       map.removeLayer(allData)  
-      //       map.addLayer(others)
-      //     });
-      //     $("#allData").click(function() {
-      //       map.removeLayer(others)
-      //       map.addLayer(allData)
-      //     });
-      // });
+          $("#others").click(function() {
+            map.removeLayer(allData)  
+            map.addLayer(others)
+          });
+          $("#allData").click(function() {
+            map.removeLayer(others)
+            map.addLayer(allData)
+          });
+      });
 
       var baseMaps = {
         "Streets":osm,
