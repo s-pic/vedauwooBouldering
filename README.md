@@ -8,11 +8,6 @@
 - [x] with test data, convert to json
 - [ ] Finish off collecting GPS
 
-### book to do
-- [ ] find a template and start pasting in photos
-- [ ] Make guidebook sections
-- [ ] see if there is a way to recompile book based on updates instead of manually for sections
-
 ### Viz to do
 - [x] Add in filters for data
 - [ ] Filters for grade: convert all to V scale?
@@ -36,3 +31,7 @@
 - [ ] get hosting
 - [ ] Do i need django or something to have multiple urls?
 
+### book to do
+- [ ] find a template and start pasting in photos
+- [ ] Make guidebook sections
+- [ ] see if there is a way to recompile book based on updates instead of manually for sections
