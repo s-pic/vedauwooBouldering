@@ -1,3 +1,5 @@
+var globalSpatialID = 'blank';
+
 var columnDefs= [
     {field: 'Route Name', minWidth:10, sortable:true, filter:true},
     {field: 'Grade', minWidth:5, sortable:true, filter:true},
@@ -26,14 +28,13 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 };
 
-var testGlobal;
-function onSelectionChanged(event){
-    var selectedNodes = event.api.getSelectedNodes();
+function onSelectionChanged(){
+    var selectedNodes = gridOptions.api.getSelectedNodes();
     var selectedData = selectedNodes.map(node => node.data.SpatialID);
     var uniqueSpatialID = selectedData.filter(onlyUnique);
-
-    testGlobal = uniqueSpatialID;
-};
+    
+    return uniqueSpatialID;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     var gridDiv = document.querySelector('#myGrid');

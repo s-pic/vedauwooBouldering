@@ -10,6 +10,7 @@
 
 ### Viz to do
 - [x] Add in filters for data
+- [ ] Is passing in a global variable from data_grid.js OK?
 - [ ] Filters for grade: convert all to V scale?
 - [ ] Filters: only bring in the filters we actually need. there are a ton of extra options out there currently
 - [ ] hide api key (in js)
