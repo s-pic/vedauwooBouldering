@@ -29,8 +29,7 @@ var test;
 function onSelectionChanged(){
     var selectedRows = gridOptions.api.getSelectedRows();
     var selectedData = selectedRows.map(data => data.SpatialID);
-    var uniqueSpatialID = selectedData.filter(onlyUnique);
-
+  
     // document.querySelector('#selectedrows').innerHTML =
     //     uniqueSpatialID;
    test = selectedData.filter(onlyUnique);
