@@ -26,19 +26,19 @@
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
 
-    <!-- Read in the geojson-->
-    <script src='assets/vedauwoo.json'></script>
-    <!-- eventually do with a  promise with a $.getJson-->
-
     <script src="https://unpkg.com/ag-grid-community@27.0.1/dist/ag-grid-community.min.js"></script>
-    <script src="js/data_grid.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="bstrap/js/bootstrap.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
 
+    <!-- my stuff -->
+    <script src='assets/vedauwoo.json'></script>
+    <script src="bstrap/js/bootstrap.min.js"></script>
+    <script src="js/data_grid.js"></script>
+    <script src ="js/leaflet.js"></script>
+    
   </head>
 
   <body>
@@ -110,7 +110,7 @@
           <div class = 'row'>
               <div class="button-group">
                 <button type="button" id="allData">Show all data on map</button>
-                <button type="button" id="others">Filter map to selected data</button>
+                <button type="button" id='others'> test</button>
                 <button onclick = "clearFilters()">Reset Table</button>
               </div>
           </div>
@@ -129,27 +129,7 @@
     </div>
 
     <script >
-
-      var osm = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: 'pk.eyJ1IjoiamxvbWJhcmQzMTQxNTkiLCJhIjoiY2t4ZG4wbDQ0M2h0dDJvcG12NWxkN2ljcCJ9.fNlPsPAoumrKbHKgXS2umw'
-        });
-
-      var sat_data = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 18,
-          id: 'mapbox/satellite-streets-v11',
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: 'pk.eyJ1IjoiamxvbWJhcmQzMTQxNTkiLCJhIjoiY2t4ZG4wbDQ0M2h0dDJvcG12NWxkN2ljcCJ9.fNlPsPAoumrKbHKgXS2umw'
-      });
-
-      var bounds = new L.LatLngBounds(new L.LatLng(41.008,-106.710), new L.LatLng(41.813,-104.861));   
-
+      
       var map = L.map('map', {
         center: [41.210, -105.360],
         zoom: 11,
@@ -159,13 +139,15 @@
         maxBoundsViscosit:1.0
       });
 
-      var promise = $.getJSON("/assets/vedauwoo.geojson");
+      L.control.layers(baseMaps).addTo(map);
+
 
       function filterSpatialID(layer){
         test_list = ['Lower Blair_0','Lower Eagle_16']
         return test_list.includes(layer.properties.SpatialID)
       };
   
+      var promise = $.getJSON("/assets/vedauwoo.geojson");
       promise.then(function(data){
           var allData = L.geoJson(data,{
             onEachFeature: function(feature,layer){

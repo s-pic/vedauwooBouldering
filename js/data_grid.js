@@ -30,10 +30,7 @@ function onSelectionChanged(){
     var selectedRows = gridOptions.api.getSelectedRows();
     var selectedData = selectedRows.map(data => data.SpatialID);
   
-    // document.querySelector('#selectedrows').innerHTML =
-    //     uniqueSpatialID;
-   var test = selectedData.filter(onlyUnique);
-   console.log(test);
+    var test = selectedData.filter(onlyUnique);
 
    return test
 };
@@ -48,3 +45,14 @@ function clearFilters(){
     gridOptions.api.setFilterModel(null);
 }
 
+function grabFilteredData(){
+    let rowData = [];
+    gridOptions.api.forEachNodeAfterFilter(node => {
+        rowData.push(node.data.SpatialID);
+    });
+
+    var uniqueID = rowData.filter(onlyUnique);
+    // console.log(uniqueID);
+
+    return rowData;
+}
