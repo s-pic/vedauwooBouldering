@@ -18,22 +18,21 @@ const gridOptions = {
         minWidth:100
     },
     rowSelection: 'multiple',
-    pagination:true,
-    onSelectionChanged:onSelectionChanged
+    pagination:true
 };
 
 function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 };
 
-function onSelectionChanged(){
-    var selectedRows = gridOptions.api.getSelectedRows();
-    var selectedData = selectedRows.map(data => data.SpatialID);
+// function onSelectionChanged(){
+//     var selectedRows = gridOptions.api.getSelectedRows();
+//     var selectedData = selectedRows.map(data => data.SpatialID);
   
-    var test = selectedData.filter(onlyUnique);
+//     var test = selectedData.filter(onlyUnique);
 
-   return test
-};
+//    return test
+// };
 
 document.addEventListener('DOMContentLoaded', () => {
     const gridDiv = document.querySelector('#myGrid');
@@ -45,14 +44,17 @@ function clearFilters(){
     gridOptions.api.setFilterModel(null);
 }
 
-
-document.addEventListener('DOMContentLoaded',() => {
+function grabFilteredData(){
     let rowData = [];
     gridOptions.api.forEachNodeAfterFilter(node => {
         rowData.push(node.data.SpatialID);
     });
-
+    
     var uniqueID = rowData.filter(onlyUnique);
-    console.log(uniqueID);
+    
+    return uniqueID;
+}
 
-});
+function dumb(){
+    return ['1'];
+}
