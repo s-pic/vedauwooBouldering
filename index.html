@@ -35,7 +35,7 @@
     <script src="bstrap/js/bootstrap.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
-    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script src="https://unpkg.com/ag-grid-community@27.0.1/dist/ag-grid-community.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
 
@@ -110,7 +110,7 @@
           <div class = 'row'>
               <div class="button-group">
                 <button type="button" id="allData">Show all data on map</button>
-                <button type="button" id="others">Filter map to show selected data</button>
+                <button type="button" id="others">Filter map to selected data</button>
                 <button onclick = "clearFilters()">Reset Table</button>
               </div>
           </div>
@@ -192,19 +192,6 @@
             map.addLayer(allData)
           });
       });
-
-      // var baseMaps = {
-      //   "Streets":osm,
-      //   "Satellite":sat_data
-      // };
-
-      // L.control.layers(baseMaps).addTo(map);
-
-      // var layerGroup = L.geoJSON(voo_spatial,{
-      //   onEachFeature: function(feature,layer){
-      //     layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
-      //   }
-      // }).addTo(map);
 
     </script>
 

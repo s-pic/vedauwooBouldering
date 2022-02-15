@@ -1,5 +1,3 @@
-var globalSpatialID = ['test'];
-
 var columnDefs= [
     {field: 'Route Name', minWidth:10, sortable:true, filter:true},
     {field: 'Grade', minWidth:5, sortable:true, filter:true},
@@ -22,23 +20,19 @@ const gridOptions = {
         flex:1,
         minWidth:100
     },
-    rowSelection: 'multiple',
-    rowMultiSelectWithClick:true,
+    rowSelection: 'single',
     pagination:true,
     onSelectionChanged:onSelectionChanged
 };
 
-function onSelectionChanged(){
- 
-    var selectedRows = gridOptions.api.getSelectedRows();
-    var grabSpatialID = selectedRows.map(row => row.SpatialID);
-    var uniqueSpatialID = grabSpatialID.filter(onlyUnique);
-    console.log(uniqueSpatialID)
-
-    return uniqueSpatialID;
+function onSelectionChanged() {
+    var selectedNodes = gridOptions.api.getSelectedRows();
+    
+    document.querySelector('#spatialID').innerHTML = 
+        selectedNodes.SpatialID;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     var gridDiv = document.querySelector('#myGrid');
     new agGrid.Grid(gridDiv, gridOptions);
     
@@ -47,3 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
 function clearFilters(){
     gridOptions.api.setFilterModel(null);
 }
+
