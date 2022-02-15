@@ -21,6 +21,7 @@
 - [x] Restrict bounds
 - [ ] allow users to right click and select coordinates
 - [ ] Maybe have a button to filter to all crack routes or something else?
+- [ ] how do you unselect all rows for ag grid
 
 #### Below I may need python to do
 - [ ] For selected routes: export to shapefile
