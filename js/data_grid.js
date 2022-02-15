@@ -25,15 +25,15 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 };
 
+var test;
 function onSelectionChanged(){
     var selectedRows = gridOptions.api.getSelectedRows();
     var selectedData = selectedRows.map(data => data.SpatialID);
     var uniqueSpatialID = selectedData.filter(onlyUnique);
 
-    console.log(uniqueSpatialID);
     // document.querySelector('#selectedrows').innerHTML =
     //     uniqueSpatialID;
-   
+   test = selectedData.filter(onlyUnique);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
