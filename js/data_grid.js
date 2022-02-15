@@ -45,14 +45,14 @@ function clearFilters(){
     gridOptions.api.setFilterModel(null);
 }
 
-function grabFilteredData(){
+
+document.addEventListener('DOMContentLoaded',() => {
     let rowData = [];
     gridOptions.api.forEachNodeAfterFilter(node => {
         rowData.push(node.data.SpatialID);
     });
 
     var uniqueID = rowData.filter(onlyUnique);
-    // console.log(uniqueID);
+    console.log(uniqueID);
 
-    return rowData;
-}
+});
