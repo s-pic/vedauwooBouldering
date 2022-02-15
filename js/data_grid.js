@@ -30,8 +30,9 @@ function onSelectionChanged(){
     var selectedData = selectedRows.map(data => data.SpatialID);
     var uniqueSpatialID = selectedData.filter(onlyUnique);
 
-    document.querySelector('#selectedrows').innerHTML =
-        uniqueSpatialID;
+    console.log(uniqueSpatialID);
+    // document.querySelector('#selectedrows').innerHTML =
+    //     uniqueSpatialID;
    
 };
 
