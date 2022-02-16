@@ -37,7 +37,7 @@
     <script src='assets/vedauwoo.json'></script>
     <script src="bstrap/js/bootstrap.min.js"></script>
     <script src="js/data_grid.js"></script>
-    <script src ="js/leaflet.js"></script>
+    <script src="js/leaflet.js"></script>
     
   </head>
 
@@ -130,12 +130,7 @@
 
     <script>
 
-      // var fuck = grabFilteredData();
-      // console.log(fuck);
-      window.addEventListener('DOMContentLoaded',function() {
-        var filteredData = grabFilteredData();
-        
-      }, false);
+  window.addEventListener('DOMContentLoaded',function(){
 
       var map = L.map('map', {
         center: [41.210, -105.360],
@@ -149,13 +144,9 @@
       L.control.layers(baseMaps).addTo(map);
 
       function filterSpatialID(layer){
-        
-        window.addEventListener('DOMContentLoaded',function() {
-            var filteredData = grabFilteredData();
-          }, false);
-
-        filteredLayers = filteredData.includes(layer.properties.SpatialID)
-        return filteredData
+        var filteredData = grabFilteredData();
+        var filteredLayers = filteredData.includes(layer.properties.SpatialID)
+        return filteredLayers
       };
   
       var promise = $.getJSON("/assets/vedauwoo.geojson");
@@ -184,7 +175,9 @@
             map.addLayer(allData)
           });
       });
+  } , false)
 
     </script>
+    
   </body>
 </html>
