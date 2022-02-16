@@ -130,11 +130,12 @@
 
     <script>
 
-      var test_dumb = dumb();
-      console.log(test_dumb);
-
-      var fuck = grabFilteredData();
+      // var fuck = grabFilteredData();
       // console.log(fuck);
+      window.addEventListener('DOMContentLoaded',function() {
+        var filteredData = grabFilteredData();
+        
+      }, false);
 
       var map = L.map('map', {
         center: [41.210, -105.360],
@@ -148,8 +149,13 @@
       L.control.layers(baseMaps).addTo(map);
 
       function filterSpatialID(layer){
-        test_list = ['Lower Blair_0','Lower Eagle_16']
-        return test_list.includes(layer.properties.SpatialID)
+        
+        window.addEventListener('DOMContentLoaded',function() {
+            var filteredData = grabFilteredData();
+          }, false);
+
+        filteredLayers = filteredData.includes(layer.properties.SpatialID)
+        return filteredData
       };
   
       var promise = $.getJSON("/assets/vedauwoo.geojson");

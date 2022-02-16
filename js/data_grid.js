@@ -55,6 +55,4 @@ function grabFilteredData(){
     return uniqueID;
 }
 
-function dumb(){
-    return ['1'];
-}
+
