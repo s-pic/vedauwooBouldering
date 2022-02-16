@@ -11,17 +11,16 @@
 ### Viz to do
 - [x] Add in filters for data
 - [x] Can figure out how to subset spatial data based on a filter
-- [ ] No clue how to pass something from ag grid
+- [ ] For selected routes: highlight leaflet info
 - [ ] Filters for grade: convert all to V scale?
 - [ ] Filters: only bring in the filters we actually need. there are a ton of extra options out there currently
 - [ ] hide api key (in js)
 - [ ] Convert numbers in grade to stars or something cool
 - [ ] Add in an about me section
-- [ ] For selected routes: highlight leaflet info
 - [x] Restrict bounds
 - [ ] allow users to right click and select coordinates
 - [ ] Maybe have a button to filter to all crack routes or something else?
-- [ ] how do you unselect all rows for ag grid
+- [x] how do you unselect all rows for ag grid
 
 #### Below I may need python to do
 - [ ] For selected routes: export to shapefile

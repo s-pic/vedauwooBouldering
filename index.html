@@ -156,10 +156,6 @@
           });
 
           var others = L.geoJson(data, {
-              filter: function(feature, layer){
-                let filteredData = ['Lower Blair_0'];
-                return filteredData.includes(feature.properties.SpatialID)
-              },
               onEachFeature: function(feature,layer){
                   layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
                 }
@@ -169,6 +165,12 @@
 
           $("#others").click(function() {
             var dataToSubset = grabFilteredData();
+
+            
+                let filteredData = ['Lower Blair_0'];
+                return filteredData.includes(feature.properties.SpatialID)
+              
+
             map.removeLayer(allData)  
             map.addLayer(others)
           });
