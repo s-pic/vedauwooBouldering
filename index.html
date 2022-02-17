@@ -157,23 +157,33 @@
           var others = L.geoJson(data, {
               onEachFeature: function(feature,layer){
                   layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
-                }
+                },
+              filter: function(feature,layer){
+
+              }
           });
 
           allData.addTo(map)
 
           $("#others").click(function() {
+            
             var dataToSubset = grabFilteredData();
 
-            
+            var subset_data = L.geoJson(data, {
+              onEachFeature: function(feature,layer){
+                  layer.bindPopup('<h4> Area Name: '+feature.properties.Name+'</h4><p>Grades: '+feature.properties.Grade+'</p>');
+                },
+              filter: function(feature,layer){
+                  return dataToSubset.includes(feature.properties.SpatialID);
+              }
+            });
             //some sort of code goes here
-              
-
             map.removeLayer(allData)  
-            map.addLayer(others)
+            map.addLayer(subset_data)
+
           });
           $("#allData").click(function() {
-            map.removeLayer(others)
+            
             map.addLayer(allData)
           });
       });
