@@ -11,7 +11,8 @@
 ### Viz to do
 - [x] Add in filters for data
 - [x] Can figure out how to subset spatial data based on a filter
-- [ ] For selected routes: figure out how to subset things based on 
+- [x] For selected routes: figure out how to subset things based on 
+- [ ] Longterm: filter and don't end up with a global variable
 - [ ] Filters for grade: convert all to V scale?
 - [ ] Filters: only bring in the filters we actually need. there are a ton of extra options out there currently
 - [ ] hide api key (in js)
@@ -32,7 +33,7 @@
 - [x] get a url
 # NOTE # 
 For now, run python -m http.server 8000 in the 'vedauwooBouldering' place and point chrome to localhost:8000
-- [ ] Publish on github pages now.. but that seems short term?
+- [x] Publish on github pages now.. but that seems short term?
 - [ ] Do i need django or something to have multiple urls?
 
 ### book to do
