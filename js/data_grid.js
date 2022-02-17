@@ -45,14 +45,12 @@ function clearFilters(){
 }
 
 function grabFilteredData(){
-    let rowData = [];
-    gridOptions.api.forEachNodeAfterFilter(node => {
-        rowData.push(node.data.SpatialID);
-    });
+    const selectedNodes = gridOptions.api.getSelectedNodes();
+    const selectedData = selectedNodes.map(node => node.data);
     
-    var uniqueID = rowData.filter(onlyUnique);
+    console.log('selected row data', selectedData)
     
-    return uniqueID;
+    return selectedData
 }
 
 
