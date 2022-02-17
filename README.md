@@ -13,6 +13,7 @@
 - [x] Can figure out how to subset spatial data based on a filter
 - [x] For selected routes: figure out how to subset things based on 
 - [ ] Longterm: filter and don't end up with a global variable
+- [ ] Convert button to radio button or dropdown so someone doesn't select filter multiple times (to avoid a bug)
 - [ ] Filters for grade: convert all to V scale?
 - [ ] Filters: only bring in the filters we actually need. there are a ton of extra options out there currently
 - [ ] hide api key (in js)

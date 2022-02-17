@@ -176,7 +176,12 @@
             window.map_id = subset_data._leaflet_id;
           });
           $("#allData").click(function() {
-            layerGroup.removeLayer(map_id)
+
+             if(typeof map_id !== 'undefined'){
+              
+              layerGroup.removeLayer(map_id)
+            }
+            
             layerGroup.addLayer(allData)
           });
       });
